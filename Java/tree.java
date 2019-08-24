@@ -1,16 +1,4 @@
 import java.util.*;
-class Node
-{
-    int data;
-    Node left;
-    Node right;
-    Node(int key)
-    {
-        data=key;
-        left=null;
-        right=null;
-    }
-}
 public class tree
 {
     Node root;
@@ -70,8 +58,8 @@ public class tree
             /   \
           null  null     */
  
-        tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
+        t.root.left = new Node(2);  // Earlier this was "tree.root.<child name>"... but "tree" is the class name not object!
+        t.root.right = new Node(3);  // Earlier this was "tree.root.<child name>"... but "tree" is the class name not object!
  
         /* 2 and 3 become left and right children of 1
                1
@@ -81,7 +69,7 @@ public class tree
         null null null null  */
  
  
-        tree.root.left.left = new Node(4);
+        t.root.left.left = new Node(4);
         /* 4 becomes left child of 2
                     1
                 /       \
@@ -92,11 +80,11 @@ public class tree
           null null
          */
 
-        t.printPreorder(root);
+        t.printPreorder(t.root); // Earlier You're passing only 'root' in this method.
         System.out.println();
-        t.printInorder(root);
+        t.printInorder(t.root); // Earlier You're passing only 'root' in this method.
         System.out.println();
-        t.printPostorder(root);
+        t.printPostorder(t.root); // Earlier You're passing only 'root' in this method.
         System.out.println();
     }
     public static void main(String[] args)
@@ -105,4 +93,15 @@ public class tree
         t1.create();
     }
 }
-
+class Node
+{
+    int data;
+    Node left;
+    Node right;
+    Node(int key)
+    {
+        data=key;
+        left=null;
+        right=null;
+    }
+}
